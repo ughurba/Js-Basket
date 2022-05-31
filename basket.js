@@ -1,15 +1,20 @@
 let arr = JSON.parse(localStorage.getItem('basket'))
 const table = document.querySelector('.table')
-let i = 0;
 
-function removeElement(ev) {
-  let idBtn = this.getAttribute('data-id')
 
-   let newArr =   arr.filter(product => product.id !== idBtn )
 
-    localStorage.setItem('basket',JSON.stringify(newArr))
 
-    JSON.parse(localStorage.getItem('basket'))
+
+function removeElement() {
+    let idBtn = this.getAttribute('data-id')
+
+
+     let newArr = arr.filter(product => product.id !== idBtn)
+
+    localStorage.setItem('basket', JSON.stringify(newArr))
+
+    // sizeProduct()
+
 }
 
 arr.forEach(product => {
@@ -40,7 +45,9 @@ arr.forEach(product => {
     closeBtn.style.top = '30px'
     closeBtn.style.cursor = 'pointer'
     closeBtn.setAttribute('data-id', `${product.id}`)
+
     closeBtn.addEventListener('click', removeElement)
+
 
 
     subtotal.innerText += '$' + product.Price * product.count

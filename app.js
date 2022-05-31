@@ -16,8 +16,6 @@ function addProductHandler(ev) {
     let existProduct = arr.find(p => p.id == productId)
     if (existProduct == undefined) {
 
-
-
         arr.push({
             id: productId,
             name: this.parentElement.firstElementChild.innerText,
